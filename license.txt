@@ -1,5 +1,3 @@
-Manuel Cuesta Modified BSD Licence
-
 Copyright (c) 2010, Manuel Cuesta <camilocuesta@hotmail.com>
 All rights reserved. 
 
