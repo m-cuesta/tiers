@@ -90,7 +90,7 @@ public class Cryptowerk {
     /** Encrypts the clear text given
      *
      * @param cleartext Text to be encrypted
-     * @return The encrypted text, in a upper case hex string representation
+     * @return The encrypted text, in a hex string representation
      * @throws UnsupportedEncodingException
      * @throws NoSuchAlgorithmException
      * @throws InvalidKeyException
@@ -113,7 +113,7 @@ public class Cryptowerk {
      * @throws BadPaddingException
      */
     public String decrypt( String ciphertext ) throws NoSuchAlgorithmException, InvalidKeyException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
-        return new String(decrypt( toByteArray(ciphertext) ));
+        return new String( decrypt( toByteArray(ciphertext) ));
     }
 
     /** Encrypts the clear text given
@@ -164,7 +164,7 @@ public class Cryptowerk {
         // Create the cipher
         desCipher = Cipher.getInstance("DESede");
 
-        // Initialize the cipher for encryption
+        // Initialize the cipher for decryption
         desCipher.init(Cipher.DECRYPT_MODE, secretKey );
 
         // Encrypt the cleartext
@@ -184,10 +184,10 @@ public class Cryptowerk {
     (byte)'c', (byte)'d', (byte)'e', (byte)'f'
     };
 
-    /** Converts a byte array to its hex string representation, uppercase
+    /** Converts a byte array to its hex string representation
      *
      * @param raw A byte array
-     * @return Hex string, uppercase
+     * @return Hex string
      * @throws UnsupportedEncodingException
      */
     public static String toHexString(byte[] raw)throws UnsupportedEncodingException
@@ -200,7 +200,7 @@ public class Cryptowerk {
         hex[index++] = HEX_CHAR_TABLE[v >> 4];
         hex[index++] = HEX_CHAR_TABLE[v & 0xF];
       }
-      return new String(hex, "ASCII").toUpperCase();
+      return new String(hex, "ASCII");
     }
 
     /** Converts a hex string to a byte array
